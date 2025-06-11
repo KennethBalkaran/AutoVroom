@@ -1,23 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0" />
     <title>Vroom Autoles - Home</title>
-</head>
-<body>
-  <header>
-    <h1>Vroom Autoles</h1>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#inschrijven">Schrijf in</a></li>
-        <li><a href="#tarieven">Tarieven</a></li>
-        <li><a href="#voorwaarden">Voorwaarden</a></li>
-        <li><a href="#over">Over ons</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>    
-</body>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/82dda54b2c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css"
+    />
+  </head>
+  <body>
+    <section class="header">
+      <nav>
+        <a href="index.html"><img src="images/logo.png" /></a>
+        <div class="nav-links" id="navlinks">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+
+          <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="Inschrijf.html">INSCHRIJVEN</a></li>
+            <li><a href="Tarieven.html">TARIEVEN</a></li>
+            <li><a href="algemeene voorwaarde.html">ALGEMEENE VOORWARDE</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
+
+      <div class="text-box">
+        <h1>Vroom Autoles</h1>
+        <p>
+          Dit is de officiele Gouden Hengel website. Hier kun je allemaal
+          informatie verzamelen over vissen.<br />
+          Je kan je ook inschrijven voor opkomende wedstrijden.
+        </p>
+        <a href="" class="hero-btn">Bezoek ons voor meer informatie</a>
+      </div>
+    </section>
+
+    <!-----------course----------->
+
+    <section class="course">
+      <h1>Activiteiten die wij doen</h1>
+      <p>Activiteiten</p>
+
+      <div class="row">
+        <div class="col">
+          <h3>Lessen</h3>
+          <p>Wij leren je hoe je kan vissen met speciale lessen</p>
+        </div>
+        <div class="col">
+          <h3>Wedstrijden</h3>
+          <p>not sure whats goes here yet</p>
+        </div>
+        <div class="col">
+          <h3>Prijzen</h3>
+          <p>not sure whats goes here yet</p>
+        </div>
+      </div>
+    </section>
+
+    <!-----------Locaties----------->
+    <section calss="Locaties">
+      <h1>Onze Locaties</h1>
+      <p>Op deze locaties zijn wij in gestelt</p>
+
+      <div class="row">
+        <div class="locatie-col">
+          <img src="images/locaties_engeland.jpg" />
+          <div class="layer">
+            <h3>DORCHESTER</h3>
+          </div>
+        </div>
+        <div class="locatie-col">
+          <img src="images/harlingen.jpg" />
+          <div class="layer">
+            <h3>HARLINGEN</h3>
+          </div>
+        </div>
+        <div class="locatie-col">
+          <img src="images/leeuwarden.png" />
+          <div class="layer">
+            <h3>LEEUWARDEN</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-----------reviews----------->
+    <section class="review">
+      <h1>Wat onze vissers zeggen</h1>
+      <p>iets over vissen</p>
+
+      <div class="row">
+        <div class="review-col">
+          <img src="images/fishman1.jpg" />
+          <div>
+            <p>gekke review hier</p>
+            <h3>Chris Berkley</h3>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+        </div>
+        <div class="review-col">
+          <img src="images/fishman2.jpg" />
+          <div>
+            <p>gekke review hier</p>
+            <h3>Greg Bokkel</h3>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-----------join us----------->
+    <section class="join">
+      <h1>Doe mee met onze wedstrijden!</h1>
+      <a href="" class="hero-btn">CONTACT</a>
+    </section>
+
+    <!-----------footer----------->
+
+    <section class="footer">
+      <h4>About us</h4>
+      <p>Gekke informatie over vis company</p>
+      <div class="icons">
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-linkedin"></i>
+      </div>
+      <p>Made by Kenneth Balkaran</p>
+    </section>
+
+    <!-----------JavaScript Toggle Menu----------->
+    <script>
+      var navLinks = document.getElementById("navLinks");
+
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
+      function hideMenu() {
+        navLinks.style.right = "-200px";
+      }
+    </script>
+  </body>
 </html>
