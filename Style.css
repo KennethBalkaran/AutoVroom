@@ -392,13 +392,13 @@ p {
   padding: 15px 0 25px;
 }
 
-.red-btn {
+.blu-btn {
   border: 1px solid #3c99e0;
   background: transparent;
   color: #3c99e0;
 }
 
-.red-btn:hover {
+.blu-btn:hover {
   color: #fff;
 }
 
