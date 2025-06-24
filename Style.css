@@ -4,7 +4,7 @@
   font-family: "Poppins", sans-serif;
 }
 .header {
-  min-height: 100vh;    
+  min-height: 100vh;
   width: 100%;
   background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
     url(images/banner.png);
@@ -126,9 +126,9 @@ nav .fa-solid {
   }
 }
 
-/*-------- course --------*/
+/*-------- opties --------*/
 
-.course {
+.opties {
   width: 80%;
   margin: auto;
   text-align: center;
@@ -152,9 +152,9 @@ p {
   justify-content: space-between;
 }
 
-.col {
+.opties-col {
   flex-basis: 31%;
-  background: #3c99e0;
+  background: #fff3f3;
   border-radius: 10px;
   margin-bottom: 5%;
   padding: 20px 12px;
@@ -168,8 +168,8 @@ h3 {
   margin: 10px 0;
 }
 
-.col:hover {
-  box-shadow: 0 0 30px 0px rgba(25, 39, 198, 0.7);
+.opties-col:hover {
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 700px) {
@@ -236,6 +236,32 @@ p {
   bottom: 49%;
   opacity: 1;
 }
+/*-------- Reden --------*/
+.Reden {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.reden-col {
+  flex-basis: 31%;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  text-align: left;
+}
+.reden-col img {
+  width: 100%;
+  border-radius: 10px;
+}
+.reden-col p {
+  padding: 0;
+}
+.reden-col h3 {
+  margin-top: 16px;
+  margin-bottom: 15px;
+  text-align: left;
+}
 
 /*-------- reviews --------*/
 .review {
@@ -270,7 +296,8 @@ p {
   text-align: left;
 }
 
-.review-col .fa {
+.review-col .fa-solid,
+.fa-regular {
   color: #3c99e0;
 }
 
@@ -321,7 +348,7 @@ p {
   font-weight: 600;
 }
 
-.icons .fa {
+.icons .fa-brands {
   color: #3c99e0;
   margin: 0 13px;
   cursor: pointer;
@@ -375,7 +402,6 @@ p {
   color: #fff;
 }
 
-
 /*-------- Contact --------*/
 .location {
   width: 80%;
@@ -420,7 +446,8 @@ p {
   font-weight: 400;
 }
 
-.contact-col input, .contact-col textarea{
+.contact-col input,
+.contact-col textarea {
   width: 100%;
   padding: 15px;
   margin-bottom: 17px;
