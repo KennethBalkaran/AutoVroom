@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vroom Autoles - Inschrijven</title>
+    <link rel="stylesheet" href="Style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css"
+    />
+    <script
+      rel="stylesheet"
+      src="https://kit.fontawesome.com/4bb009b32d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section class="sub-header">
+      <nav>
+        <a href="Index.html"><img src="Images/logo.png" /></a>
+        <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+        <div class="nav-links" id="navLinks">
+          <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="Index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="Tarieven.html">TARIEVEN</a></li>
+            <li><a href="algemeene voorwaarde.html">VOORWAARDEN</a></li>
+            <li><a href="Inschrijf.html">INSCHRIJVEN</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+        </div>
+      </nav>
+      <h1>Inschrijven</h1>
+    </section>
+
+    <!----------- Inschrijven ----------->
+
+    <!----------- Footer ----------->
+    <section class="footer">
+      <h4>Over ons</h4>
+      <p>Vind meer info over ons in onze social medias</p>
+      <div class="icons">
+        <i class="fa-brands fa-square-facebook"></i>
+        <i class="fa-brands fa-x-twitter"></i>
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+      <p>
+        Dit is niet een echte autoles website en der zullen inderdaad sommige
+        dingen niet echt bestaan.
+      </p>
+    </section>
+    <!-----------JavaScript Toggle Menu----------->
+    <script>
+      var navLinks = document.getElementById("navLinks");
+
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
+      function hideMenu() {
+        navLinks.style.right = "-200px";
+      }
+    </script>
+  </body>
+</html>
