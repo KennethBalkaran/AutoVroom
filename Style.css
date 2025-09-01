@@ -491,3 +491,7 @@ p {
 .tarieven-col:hover {
   box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
 }
+
+.tarieven-col .p-prijs {
+text-align: initial;
+}
