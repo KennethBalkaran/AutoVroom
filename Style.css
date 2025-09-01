@@ -495,3 +495,10 @@ p {
 .tarieven-col .p-prijs {
 text-align: initial;
 }
+
+.btn-div{
+  padding: 5px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
