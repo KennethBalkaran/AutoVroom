@@ -404,6 +404,30 @@ p {
   color: #fff;
 }
 
+.faq{
+  width: 80%;
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 50px;
+}
+
+.faq-head{
+  flex-basis: 48%;
+  padding: 30px 2px;
+}
+.faq-question{
+  padding: 10px;
+  margin: 10px;
+}
+
+.faq-question h2 {
+  padding-top: 0;
+  text-align: center;
+}
+.faq-question p {
+  padding: 15px 0 25px;
+}
+
 /*-------- Contact --------*/
 .location {
   width: 80%;
@@ -547,16 +571,141 @@ text-align: initial;
 }
 
 .pakket-btn {
-  margin-top: auto; /* duwt de knop altijd naar onder */
-  padding: 10px 15px;
+  border: 1px solid #fd3643;
+  background: #fff3f3;
+  color: #fd3643;
+  padding: 10px;
+}
+
+.pakket-btn:hover {
+background-color: #fd3643;
+color: #fff3f3;
+transition: 0.5s;
+}
+
+.winkelwagen{
+  padding: 50px;
+}
+
+/*-------- winkel wagen --------*/
+
+.cart-box {
+  align-self: center;
+  margin-top: 40px;
+  width: 320px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.cart-header {
+  background: #fd3643; /* Rood */
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+.cart-body {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.cart-item.discount {
+  color: #2a9d8f; /* groen voor korting */
+  font-weight: bold;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #f8f8f8;
+}
+
+.cart-total .price {
+  color: #fd3643;
+  font-size: 18px;
+}
+
+.cart-note {
+  padding: 12px 15px;
+  font-size: 12px;
+  color: #444;
+  background: #fff5f5;
+  border-top: 1px solid #eee;
+}
+
+.pakket-btn {
+  margin-top: 10px;
+  padding: 8px 15px;
   border: none;
   border-radius: 8px;
-  background: #fd3643;
+  background: #ff4754;
   color: #fff;
   cursor: pointer;
   transition: background 0.3s;
 }
 
-.pakket-btn:hover:not(:disabled) {
+.pakket-btn:hover {
+  background: #a61d1d;
+}
+
+.pakket-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.cart-footer {
+  padding: 15px;
+  text-align: center;
+}
+
+
+/*-------- checkout --------*/
+
+
+.checkout-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
   background: #fd3643;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.checkout-btn:hover {
+  background: #b9a3a4;
+}
+
+.checkout-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: #ccc; /* standaard grijs */
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+  pointer-events: none; /* klik niet mogelijk */
+}
+
+.checkout-btn.active {
+  background: #fd3643; /* rood */
+  pointer-events: auto; /* klikbaar */
+}
+
+.checkout-btn.active:hover {
+  background: #fd3643; /* donkerder rood */
 }
