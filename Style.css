@@ -570,24 +570,39 @@ text-align: initial;
   flex-grow: 1; /* zorgt dat de tekst de ruimte vult */
 }
 
+
 .pakket-btn {
+  margin-top: 10px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #fd3643;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.3s;
   border: 1px solid #fd3643;
-  background: #fff3f3;
-  color: #fd3643;
-  padding: 10px;
 }
 
 .pakket-btn:hover {
-background-color: #fd3643;
-color: #fff3f3;
-transition: 0.5s;
+  background:transparent;
+  color: #fd3643;
+  transition: 0.3s;
 }
+
+.pakket-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.cart-footer {
+  padding: 15px;
+  text-align: center;
+}
+
+/*-------- winkel wagen --------*/
 
 .winkelwagen{
   padding: 50px;
 }
-
-/*-------- winkel wagen --------*/
 
 .cart-box {
   align-self: center;
@@ -646,30 +661,6 @@ transition: 0.5s;
   border-top: 1px solid #eee;
 }
 
-.pakket-btn {
-  margin-top: 10px;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 8px;
-  background: #ff4754;
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.pakket-btn:hover {
-  background: #a61d1d;
-}
-
-.pakket-btn:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-.cart-footer {
-  padding: 15px;
-  text-align: center;
-}
-
 
 /*-------- checkout --------*/
 
@@ -704,8 +695,11 @@ transition: 0.5s;
 .checkout-btn.active {
   background: #fd3643; /* rood */
   pointer-events: auto; /* klikbaar */
+  border: 1px solid #fd3643;
 }
 
 .checkout-btn.active:hover {
-  background: #fd3643; /* donkerder rood */
+  background: #ffffff; /* donkerder rood */
+  color: #fd3643;
+  transition: 0.3s;
 }

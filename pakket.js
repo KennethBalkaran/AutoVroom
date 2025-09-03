@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
     buttons.forEach((b) => {
       b.disabled = false;
       b.textContent = "Kies dit pakket";
-      b.style.background = "#fd3643"; // rood thema, matcht je CSS
+      b.style.background = "#fff"; // rood thema, matcht je CSS
+      b.style = "#fd3643"
     });
   }
 
