@@ -387,6 +387,7 @@ p {
 }
 .about-col h1 {
   padding-top: 0;
+  text-align: inherit;
 }
 .about-col p {
   padding: 15px 0 25px;
@@ -506,3 +507,56 @@ text-align: initial;
   flex-direction: column;
 }
 
+
+/*-------- shopping --------*/
+.pakket-selectie {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.pakket-lijst {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.pakket-kaart {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  background: #fff3f3;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.pakket-kaart h3 {
+  margin-bottom: 10px;
+}
+
+.pakket-kaart h5 {
+  margin-bottom: 8px;
+}
+
+.pakket-kaart p {
+  flex-grow: 1; /* zorgt dat de tekst de ruimte vult */
+}
+
+.pakket-btn {
+  margin-top: auto; /* duwt de knop altijd naar onder */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #fd3643;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.pakket-btn:hover:not(:disabled) {
+  background: #fd3643;
+}
