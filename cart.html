@@ -172,7 +172,23 @@
 </section>
 
 <script src="pakket.js" defer></script>
-  <script src="checkout.js" defer></script>
+<script src="checkout.js" defer></script>
+
+<div id="checkoutModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <div class="modal-header">
+      Winkelmandje
+      <span class="close-button" id="closeModal">&times;</span>
+    </div>
+    <div class="modal-body">
+      <p><strong>Gekozen Pakket:</strong> <span id="modal-pakket-naam"></span></p>
+      <p><strong>Prijs:</strong> <span id="modal-pakket-prijs"></span></p>
+      <h3><strong>Totaal prijs:</strong> <span id="modal-totaal-prijs"></span></h3>
+      
+      <button id="confirm-btn">Bestellen</button>
+    </div>
+  </div>
+</div>
 
 
     <!----------- Footer ----------->

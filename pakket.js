@@ -12,6 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const inputs       = form ? form.querySelectorAll("input") : [];
   const checkoutBtn  = document.getElementById("checkout-btn");
 
+  // Modal elementen
+  const modal = document.getElementById("checkoutModal");
+  const closeModalBtn = document.getElementById("closeModal");
+  const confirmBtn = document.getElementById("confirm-btn");
+  const modalPakketNaam = document.getElementById("modal-pakket-naam");
+  const modalPakketPrijs = document.getElementById("modal-pakket-prijs");
+  const modalTotaalPrijs = document.getElementById("modal-totaal-prijs");
+
   // Extra kosten/korting
   const INSCHRIJFKOSTEN = 39.5;
   const KORTING         = 50;
@@ -75,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
       b.disabled = false;
       b.textContent = "Kies dit pakket";
       b.style.background = "#fd3643";
-      b.style ="#fd3643";
+      b.style = "#fff";
     });
   }
 
@@ -118,19 +126,51 @@ document.addEventListener("DOMContentLoaded", () => {
   // ---------- Live validatie ----------
   inputs.forEach(i => i.addEventListener("input", updateCheckoutButton));
 
-  // ---------- Submit -> naar checkout.html ----------
+  // ---------- Checkout knop -> open modal ----------
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener("click", () => {
+      // Vul de modal met gegevens
+      if (selectedName && selectedPrice) {
+        const totaal = selectedPrice + INSCHRIJFKOSTEN - KORTING;
+        modalPakketNaam.textContent = selectedName;
+        modalPakketPrijs.textContent = `€${selectedPrice.toFixed(2)}`;
+        modalTotaalPrijs.textContent = `€${totaal.toFixed(2)}`;
+
+        // Open modal
+        modal.style.display = "flex";
+      }
+    });
+  }
+
+  // ---------- Sluit modal ----------
+  closeModalBtn.onclick = () => {
+    modal.style.display = "none";
+  };
+  window.onclick = (event) => {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+
+  // ---------- Bevestigen in modal ----------
+  confirmBtn.onclick = () => {
+    // Hier kun je verdere verwerking doen (bv. betalen, bevestigen, etc.)
+    alert("Bedankt voor je bestelling!");
+    modal.style.display = "none";
+
+    // Optioneel: reset alles na bevestiging
+    selectedName = null;
+    selectedPrice = 0;
+    renderEmptyCart();
+    inputs.forEach(i => i.value = "");
+    updateCheckoutButton();
+  };
+
+  // ---------- Form versturen (indien nodig) ----------
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      if (!selectedName || !validateFormFields()) return;
-
-      // Sla pakket in localStorage op
-      localStorage.setItem("pakketNaam", selectedName);
-      localStorage.setItem("pakketPrijs", selectedPrice);
-
-      // Ga naar checkout
-      window.location.href = "checkout.html";
+      // Dit wordt nu niet meer gebruikt, want alles gebeurt in modal
     });
   }
 });
-
