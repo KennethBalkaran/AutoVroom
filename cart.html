@@ -135,34 +135,45 @@
           </button>
         </div>
       </div>
+      
+<section class="winkelwagen">
+  <h2>Winkelmandje</h2>
 
-      <!-- Winkelwagen -->
-      <div class="cart-box">
-        <div class="cart-header">
-          <h2>Winkelmandje</h2>
-        </div>
+  <div id="cart-body">
+    <p>Nog geen pakket gekozen</p>
+  </div>
 
-        <div class="cart-body" id="cart-body">
-          <p>Nog geen paket gekozen</p>
-        </div>
+  <div class="cart-total" id="cart-total" style="display:none;">
+    <span>Totaal:</span>
+    <span id="total-price">€0,00</span>
+  </div>
 
-        <div class="cart-total" id="cart-total" style="display: none">
-          <span>Te betalen</span>
-          <span class="price" id="total-price">€ 0,00</span>
-        </div>
-        
-        <div class="cart-footer">
-          <a href="checkout.html" id="checkout-btn" class="checkout-btn disabled">Bestellen</a>
-        </div>
+  <!-- Bestellen: buiten het form maar gekoppeld via form="bestel-form" -->
+  <button
+    id="checkout-btn"
+    class="checkout-btn"
+    type="submit"
+    form="bestel-form"
+    disabled
+  >
+    Bestellen
+  </button>
 
-        <p class="cart-note">
-          <strong>Let op:</strong> bovenstaande prijs is alleen van toepassing
-          bij betaling via onze website.
-        </p>
-      </div>
-    </section>
+  <!-- Formulier ín het witte gedeelte, zelfde thema -->
+  <form id="bestel-form" class="bestel-form" novalidate>
+    <input type="text" id="naam" name="naam" placeholder="Naam en achternaam" disabled required />
+    <input type="email" id="email" name="email" placeholder="Email" disabled required />
+    <input type="tel" id="telefoon" name="telefoon" placeholder="Telefoonnummer" disabled required />
+  </form>
 
-    <script src="pakket.js"></script>
+  <p class="winkelwagen-info">
+    <strong>Let op:</strong> bovenstaande prijs is alleen van toepassing bij betaling via onze website.
+  </p>
+</section>
+
+<!-- Zorg dat dit script met defer geladen wordt -->
+<script src="pakket.js" defer></script>
+
 
     <!----------- Footer ----------->
     <section class="footer">

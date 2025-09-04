@@ -663,43 +663,106 @@ text-align: initial;
 
 
 /*-------- checkout --------*/
+.winkelwagen {
+  width: 320px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
 
+.winkelwagen h2 {
+  background: #e63946;   /* rood header */
+  color: #fff;
+  margin: 0;
+  padding: 15px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+#cart-body {
+  padding: 20px;
+  text-align: center;
+  font-size: 1rem;
+  color: #555;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.cart-item.discount {
+  color: #2a9d8f; /* groen voor korting */
+  font-weight: bold;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-top: 1px solid #eee;
+  font-size: 1.1rem;
+}
 
 .checkout-btn {
-  display: inline-block;
+  margin: 15px auto;
+  display: block;
   padding: 10px 20px;
-  border-radius: 8px;
-  background: #fd3643;
+  background: #e63946;    /* rood actief */
   color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, opacity 0.2s;
 }
 
-.checkout-btn:hover {
-  background: #b9a3a4;
+.checkout-btn:disabled {
+  background: #ccc;       /* grijs als uit */
+  cursor: not-allowed;
+  opacity: 0.9;
 }
 
-.checkout-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 8px;
-  background: #ccc; /* standaard grijs */
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s;
-  pointer-events: none; /* klik niet mogelijk */
+.checkout-btn:not(:disabled):hover {
+  background: #c91c2d;    /* donkerder rood */
 }
 
-.checkout-btn.active {
-  background: #fd3643; /* rood */
-  pointer-events: auto; /* klikbaar */
-  border: 1px solid #fd3643;
+.bestel-form {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.checkout-btn.active:hover {
-  background: #ffffff; /* donkerder rood */
-  color: #fd3643;
-  transition: 0.3s;
+.bestel-form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
 }
+
+.bestel-form input:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.winkelwagen-info {
+  background: #fff0f0;
+  padding: 10px 15px;
+  font-size: 0.85rem;
+  color: #333;
+  border-top: 1px solid #f5d0d0;
+}
+
+
+
+
+
+/*-------- test --------*/
+

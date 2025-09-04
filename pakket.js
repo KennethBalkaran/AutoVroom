@@ -1,97 +1,107 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const buttons = document.querySelectorAll(".pakket-btn");
+  // Pakket knoppen (staan elders op de pagina)
+  const pakketKnoppen = document.querySelectorAll(".pakket-btn");
 
-  // Elementen voor de (rode) winkelwagen – bestaan mogelijk niet allemaal; we checken veilig
-  const cartBody = document.getElementById("cart-body");
-  const cartTotal = document.getElementById("cart-total");
+  // Winkelmandje elementen
+  const cartBody     = document.getElementById("cart-body");
+  const cartTotal    = document.getElementById("cart-total");
   const totalPriceEl = document.getElementById("total-price");
-  const gekozenInfo = document.getElementById("gekozen-info"); // optioneel (oude tekst-sectie)
-  const checkoutBtn = document.getElementById("checkout-btn"); // optioneel (Bestellen-knop)
 
+  // Form & knop
+  const form         = document.getElementById("bestel-form");
+  const inputs       = form ? form.querySelectorAll("input") : [];
+  const checkoutBtn  = document.getElementById("checkout-btn");
+
+  // Prijsregels
   const INSCHRIJFKOSTEN = 39.5;
-  const KORTING = 50;
+  const KORTING         = 50;
 
-  let selected = null;
+  // Huidige keuze
+  let selectedName  = null;
+  let selectedPrice = 0;
 
-  // Helpers
-  function resetButtons() {
-    buttons.forEach((b) => {
-      b.disabled = false;
-      b.textContent = "Kies dit pakket";
-      b.style.background = "#fff"; // rood thema, matcht je CSS
-      b.style = "#fd3643"
-    });
+  // ---------- Helpers ----------
+  function enableForm(enable) {
+    inputs.forEach(i => i.disabled = !enable);
   }
 
-  function renderNone() {
-    if (cartBody) cartBody.innerHTML = "<p>Nog geen pakket gekozen</p>";
-    if (cartTotal) cartTotal.style.display = "none";
-    if (gekozenInfo) gekozenInfo.textContent = "Nog geen pakket gekozen";
-    updateCheckout(false);
+  function validateFormFields() {
+    if (!form) return false;
+    let ok = true;
+    inputs.forEach(i => {
+      const v = i.value.trim();
+      if (!v) ok = false;
+      if (i.type === "email" && v && !/\S+@\S+\.\S+/.test(v)) ok = false;
+    });
+    return ok;
+  }
+
+  function updateCheckoutButton() {
+    const canSubmit = !!selectedName && validateFormFields();
+    checkoutBtn.disabled = !canSubmit;   // echte disable
+  }
+
+  function renderEmptyCart() {
+    cartBody.innerHTML = "<p>Nog geen pakket gekozen</p>";
+    cartTotal.style.display = "none";
+    enableForm(false);
+    updateCheckoutButton();
   }
 
   function renderCart(name, price) {
-    if (cartBody) {
-      cartBody.innerHTML = `
-        <div class="cart-item">
-          <span>${name}</span>
-          <span>€ ${price.toFixed(2)}</span>
-        </div>
-        <div class="cart-item">
-          <span>Inschrijfkosten</span>
-          <span>€ ${INSCHRIJFKOSTEN.toFixed(2)}</span>
-        </div>
-        <div class="cart-item discount">
-          <span>Online korting</span>
-          <span>- € ${KORTING.toFixed(2)}</span>
-        </div>
-      `;
-    }
-    const total = price + INSCHRIJFKOSTEN - KORTING;
-    if (totalPriceEl) totalPriceEl.textContent = `€ ${total.toFixed(2)}`;
-    if (cartTotal) cartTotal.style.display = "flex";
-    if (gekozenInfo) gekozenInfo.textContent = `${name} - €${price.toFixed(2)} is gekozen`;
-    updateCheckout(true);
+    cartBody.innerHTML = `
+      <div class="cart-item">
+        <span>${name}</span>
+        <span>€ ${price.toFixed(2)}</span>
+      </div>
+      <div class="cart-item">
+        <span>Inschrijfkosten</span>
+        <span>€ ${INSCHRIJFKOSTEN.toFixed(2)}</span>
+      </div>
+      <div class="cart-item discount">
+        <span>Online korting</span>
+        <span>- € ${KORTING.toFixed(2)}</span>
+      </div>
+    `;
+    const totaal = price + INSCHRIJFKOSTEN - KORTING;
+    totalPriceEl.textContent = `€ ${totaal.toFixed(2)}`;
+    cartTotal.style.display = "flex";
+    enableForm(true);
+    updateCheckoutButton();
   }
 
-  function updateCheckout(enabled) {
-    if (!checkoutBtn) return; // knop nog niet toegevoegd? Geen probleem.
-    if (enabled) {
-      checkoutBtn.classList.add("active");
-      checkoutBtn.classList.remove("disabled");
-      checkoutBtn.setAttribute("aria-disabled", "false");
-      checkoutBtn.style.pointerEvents = "auto";
-    } else {
-      checkoutBtn.classList.remove("active");
-      checkoutBtn.classList.add("disabled");
-      checkoutBtn.setAttribute("aria-disabled", "true");
-      checkoutBtn.style.pointerEvents = "none";
-    }
+  function resetPakketKnoppen() {
+    pakketKnoppen.forEach(b => {
+      b.disabled = false;
+      b.textContent = "Kies dit pakket";
+      b.style.background = "#e63946";
+    });
   }
 
-  // Init
-  resetButtons();
-  renderNone();
+  // ---------- Init ----------
+  resetPakketKnoppen();
+  renderEmptyCart();
 
-  // Interactie
-  buttons.forEach((btn) => {
+  // ---------- Pakket selecteren / deselecteren ----------
+  pakketKnoppen.forEach((btn) => {
     btn.addEventListener("click", () => {
-      const name = btn.getAttribute("data-pakket");
-      const price = parseFloat(btn.getAttribute("data-prijs"));
+      const naam  = btn.getAttribute("data-pakket");
+      const prijs = parseFloat(btn.getAttribute("data-prijs"));
 
       // Deselecteren
-      if (selected === name) {
-        selected = null;
-        resetButtons();
-        renderNone();
+      if (selectedName === naam) {
+        selectedName = null;
+        selectedPrice = 0;
+        resetPakketKnoppen();
+        renderEmptyCart();
         return;
       }
 
       // Nieuw selecteren
-      selected = name;
+      selectedName = naam;
+      selectedPrice = prijs;
 
-      // Disable overige knoppen, markeer gekozen knop
-      buttons.forEach((b) => {
+      pakketKnoppen.forEach((b) => {
         if (b !== btn) {
           b.disabled = true;
         } else {
@@ -100,8 +110,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      renderCart(name, price);
+      renderCart(selectedName, selectedPrice);
     });
   });
-});
 
+  // ---------- Live validatie van form ----------
+  inputs.forEach(i => i.addEventListener("input", updateCheckoutButton));
+
+  // ---------- Submit -> ga naar checkout.html ----------
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      // dubbelcheck
+      if (!selectedName || !validateFormFields()) return;
+      window.location.href = "checkout.html";
+    });
+  }
+});
