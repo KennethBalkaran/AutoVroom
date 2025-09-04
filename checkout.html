@@ -1,14 +1,63 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <title>Checkout - Vroom Rijschool</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afrekenen - Vroom Rijschool</title>
+  <link rel="stylesheet" href="Style.css" />
 </head>
 <body>
-  <section class="checkout">
-    <h1>Bestelling afronden</h1>
-    <p>Hier komt later het betaalproces.</p>
-  </section>
+
+  <div class="checkout-container">
+    <div class="checkout-header">
+      <h1>Afrekenen</h1>
+    </div>
+
+    <div class="checkout-body">
+      <!-- Bestelling overzicht -->
+      <div class="order-summary">
+        <h3>Jouw bestelling</h3>
+        <div class="summary-item">
+          <span id="pakket-naam">Top pakket</span>
+          <span id="pakket-prijs">€ 2.025,00</span>
+        </div>
+        <div class="summary-item">
+          <span>Inschrijfkosten</span>
+          <span>€ 39,50</span>
+        </div>
+        <div class="summary-item discount">
+          <span>Online korting</span>
+          <span>- € 50,00</span>
+        </div>
+        <div class="summary-total">
+          <span>Totaal te betalen</span>
+          <span id="totaal-prijs">€ 2.014,50</span>
+        </div>
+      </div>
+
+      <!-- Betaalmethodes -->
+      <div class="payment-methods">
+        <h3>Kies je betaalmethode</h3>
+        <label class="payment-method">
+          <input type="radio" name="payment" value="ideal" required /> iDEAL
+        </label>
+        <label class="payment-method">
+          <input type="radio" name="payment" value="creditcard" /> Creditcard
+        </label>
+        <label class="payment-method">
+          <input type="radio" name="payment" value="paypal" /> PayPal
+        </label>
+      </div>
+
+      <!-- Bevestig knop -->
+      <button class="confirm-btn" id="confirm-btn">Bevestig en betaal</button>
+    </div>
+
+    <div class="checkout-footer">
+      <p>Alle betalingen zijn beveiligd en worden vertrouwelijk verwerkt.</p>
+    </div>
+  </div>
+
+  <script src="checkout.js" defer></script>
 </body>
 </html>

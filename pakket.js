@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Pakket knoppen (staan elders op de pagina)
+  // Pakket knoppen
   const pakketKnoppen = document.querySelectorAll(".pakket-btn");
 
   // Winkelmandje elementen
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const inputs       = form ? form.querySelectorAll("input") : [];
   const checkoutBtn  = document.getElementById("checkout-btn");
 
-  // Prijsregels
+  // Extra kosten/korting
   const INSCHRIJFKOSTEN = 39.5;
   const KORTING         = 50;
 
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateCheckoutButton() {
     const canSubmit = !!selectedName && validateFormFields();
-    checkoutBtn.disabled = !canSubmit;   // echte disable
+    checkoutBtn.disabled = !canSubmit;
   }
 
   function renderEmptyCart() {
@@ -74,7 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
     pakketKnoppen.forEach(b => {
       b.disabled = false;
       b.textContent = "Kies dit pakket";
-      b.style.background = "#e63946";
+      b.style.background = "#fd3643";
+      b.style ="#fd3643";
     });
   }
 
@@ -106,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
           b.disabled = true;
         } else {
           b.textContent = "Gekozen";
-          b.style.background = "#28a745"; // groen voor gekozen
+          b.style.background = "#28a745"; // groen
         }
       });
 
@@ -114,15 +115,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ---------- Live validatie van form ----------
+  // ---------- Live validatie ----------
   inputs.forEach(i => i.addEventListener("input", updateCheckoutButton));
 
-  // ---------- Submit -> ga naar checkout.html ----------
+  // ---------- Submit -> naar checkout.html ----------
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      // dubbelcheck
       if (!selectedName || !validateFormFields()) return;
+
+      // ❗️ Sla pakket in localStorage op
+      localStorage.setItem("pakketNaam", selectedName);
+      localStorage.setItem("pakketPrijs", selectedPrice);
+
+      // Ga naar checkout
       window.location.href = "checkout.html";
     });
   }

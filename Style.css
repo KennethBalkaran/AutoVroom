@@ -404,18 +404,18 @@ p {
   color: #fff;
 }
 
-.faq{
+.faq {
   width: 80%;
   margin: auto;
   padding-top: 10px;
   padding-bottom: 50px;
 }
 
-.faq-head{
+.faq-head {
   flex-basis: 48%;
   padding: 30px 2px;
 }
-.faq-question{
+.faq-question {
   padding: 10px;
   margin: 10px;
 }
@@ -482,17 +482,13 @@ p {
   box-sizing: border-box;
 }
 
-
-.voorwaarde h5{
+.voorwaarde h5 {
   font-size: 25px;
   margin: 10px;
   padding: 10px;
   color: #555;
   text-align: center;
 }
-
-
-
 
 /*-------- tarief --------*/
 
@@ -512,7 +508,7 @@ p {
   box-sizing: border-box;
   transition: 0.5s;
 }
-.tarieven-col h5{
+.tarieven-col h5 {
   font-size: 12px;
 }
 
@@ -521,16 +517,15 @@ p {
 }
 
 .tarieven-col .p-prijs {
-text-align: initial;
+  text-align: initial;
 }
 
-.btn-div{
+.btn-div {
   padding: 5px;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
 }
-
 
 /*-------- shopping --------*/
 .pakket-selectie {
@@ -555,7 +550,7 @@ text-align: initial;
   border-radius: 12px;
   padding: 20px;
   background: #fff3f3;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .pakket-kaart h3 {
@@ -570,7 +565,6 @@ text-align: initial;
   flex-grow: 1; /* zorgt dat de tekst de ruimte vult */
 }
 
-
 .pakket-btn {
   margin-top: 10px;
   padding: 8px 15px;
@@ -584,7 +578,7 @@ text-align: initial;
 }
 
 .pakket-btn:hover {
-  background:transparent;
+  background: transparent;
   color: #fd3643;
   transition: 0.3s;
 }
@@ -598,9 +592,9 @@ text-align: initial;
   text-align: center;
 }
 
-/*-------- winkel wagen --------*/
+/*-------- paket --------*/
 
-.winkelwagen{
+.winkelwagen {
   padding: 50px;
 }
 
@@ -610,7 +604,7 @@ text-align: initial;
   width: 320px;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   font-family: Arial, sans-serif;
 }
@@ -661,20 +655,19 @@ text-align: initial;
   border-top: 1px solid #eee;
 }
 
-
-/*-------- checkout --------*/
+/*-------- winkelwagen --------*/
 .winkelwagen {
   width: 320px;
   margin: 20px auto;
-  background: #fff;
+  background: #f8f8f8;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   font-family: Arial, sans-serif;
 }
 
 .winkelwagen h2 {
-  background: #e63946;   /* rood header */
+  background: #fd3643; /* rood header */
   color: #fff;
   margin: 0;
   padding: 15px;
@@ -714,23 +707,26 @@ text-align: initial;
   margin: 15px auto;
   display: block;
   padding: 10px 20px;
-  background: #e63946;    /* rood actief */
+  background: #fd3643; /* rood actief */
   color: #fff;
   border: none;
   border-radius: 6px;
   font-size: 1rem;
   cursor: pointer;
+  border: 1px solid #fd3643;
   transition: background 0.3s, opacity 0.2s;
 }
 
 .checkout-btn:disabled {
-  background: #ccc;       /* grijs als uit */
+  background: #ccc; /* grijs als uit */
   cursor: not-allowed;
   opacity: 0.9;
 }
 
 .checkout-btn:not(:disabled):hover {
-  background: #c91c2d;    /* donkerder rood */
+  background: transparent; /* donkerder rood */
+  color: #fd3643;
+  transition: 0.3s;
 }
 
 .bestel-form {
@@ -760,9 +756,95 @@ text-align: initial;
   border-top: 1px solid #f5d0d0;
 }
 
+/*-------- checkout --------*/
 
+.checkout-container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
 
+.checkout-header {
+  background: #e63946;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
 
+.checkout-body {
+  padding: 30px;
+}
 
-/*-------- test --------*/
+.order-summary {
+  margin-bottom: 30px;
+}
 
+.order-summary h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.summary-item.discount {
+  color: #2a9d8f;
+  font-weight: bold;
+}
+
+.summary-total {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.payment-methods {
+  margin-bottom: 30px;
+}
+
+.payment-methods h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.payment-method {
+  margin-bottom: 12px;
+  display: block;
+}
+
+.payment-method input {
+  margin-right: 10px;
+}
+
+.confirm-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  font-size: 1.1rem;
+  background: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.confirm-btn:hover {
+  background: #c91c2d;
+}
+
+.checkout-footer {
+  padding: 15px;
+  font-size: 0.85rem;
+  color: #555;
+  text-align: center;
+  background: #f5f5f5;
+}
