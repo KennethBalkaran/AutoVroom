@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Afrekenen - Vroom Rijschool</title>
+  <title>Vroom Rijschool - Afrekenen</title>
   <link rel="stylesheet" href="Style.css" />
 </head>
 <body>
@@ -18,20 +18,20 @@
       <div class="order-summary">
         <h3>Jouw bestelling</h3>
         <div class="summary-item">
-          <span id="pakket-naam">Top pakket</span>
-          <span id="pakket-prijs">€ 2.025,00</span>
+          <span id="pakket-naam"></span>
+          <span id="pakket-prijs"></span>
         </div>
         <div class="summary-item">
           <span>Inschrijfkosten</span>
-          <span>€ 39,50</span>
+          <span id="inschrijf-prijs">€ 39,50</span>
         </div>
         <div class="summary-item discount">
           <span>Online korting</span>
-          <span>- € 50,00</span>
+          <span id="korting-prijs">- € 50,00</span>
         </div>
         <div class="summary-total">
           <span>Totaal te betalen</span>
-          <span id="totaal-prijs">€ 2.014,50</span>
+          <span id="totaal-prijs"></span>
         </div>
       </div>
 
@@ -58,6 +58,8 @@
     </div>
   </div>
 
+  <script src="pakket.js" defer></script>
   <script src="checkout.js" defer></script>
+
 </body>
 </html>

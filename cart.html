@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vroom Autoles - Paketen</title>
+  <title>Vroom Rijschool - Paketen</title>
     <link rel="stylesheet" href="Style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -135,7 +135,9 @@
           </button>
         </div>
       </div>
-      
+
+          <!----------- winkelwagen ----------->
+
 <section class="winkelwagen">
   <h2>Winkelmandje</h2>
 
@@ -148,18 +150,16 @@
     <span id="total-price">€0,00</span>
   </div>
 
-  <!-- Bestellen: buiten het form maar gekoppeld via form="bestel-form" -->
   <button
-    id="checkout-btn"
-    class="checkout-btn"
-    type="submit"
-    form="bestel-form"
-    disabled
-  >
-    Bestellen
-  </button>
+  id="checkout-btn"
+  class="checkout-btn"
+  type="submit"
+  form="bestel-form"
+  disabled
+>
+  Bestellen
+</button>
 
-  <!-- Formulier ín het witte gedeelte, zelfde thema -->
   <form id="bestel-form" class="bestel-form" novalidate>
     <input type="text" id="naam" name="naam" placeholder="Naam en achternaam" disabled required />
     <input type="email" id="email" name="email" placeholder="Email" disabled required />
@@ -171,8 +171,8 @@
   </p>
 </section>
 
-<!-- Zorg dat dit script met defer geladen wordt -->
 <script src="pakket.js" defer></script>
+  <script src="checkout.js" defer></script>
 
 
     <!----------- Footer ----------->

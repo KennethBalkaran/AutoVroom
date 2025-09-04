@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       if (!selectedName || !validateFormFields()) return;
 
-      // ❗️ Sla pakket in localStorage op
+      // Sla pakket in localStorage op
       localStorage.setItem("pakketNaam", selectedName);
       localStorage.setItem("pakketPrijs", selectedPrice);
 
@@ -133,3 +133,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
