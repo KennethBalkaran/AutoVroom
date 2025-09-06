@@ -4,7 +4,7 @@ $visitor_email = $_POST['email'];
 $subject = $_POST['subject'];
 $message = $_POST['message'];
 
-$email_form = '@gmail.com';
+$email_form = 'info@Vroom.com';
 
 $email_subject = 'New Form Submission'
 
@@ -17,6 +17,9 @@ $to = 'kennethbalkaran8@gmail.com';
 
 $headers = "From: $email.form \r\n";
 
-$headers = "From: $email.form \r\n";
+$headers = "Reply-To: $visitor_email \r\n";
 
+mail($to, $email_subject, $email_body, $headers);
+
+header("Location: contact.html");
 ?>
