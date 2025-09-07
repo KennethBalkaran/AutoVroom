@@ -170,7 +170,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      // Dit wordt nu niet meer gebruikt, want alles gebeurt in modal
     });
   }
 });

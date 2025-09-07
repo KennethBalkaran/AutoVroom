@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vroom Rijschool - Contact</title>
+    <title>Vroom Rijschool - Contact</title>
     <link rel="stylesheet" href="Style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -80,16 +80,33 @@
           </div>
         </div>
         <div class="contact-col">
-          <form action="">
-            <input type="text" placeholder="Naam en achternaam" required />
+          <form action="https://formspree.io/f/xrbarkdl" method="POST">
             <input
-              type="email"
-              placeholder="Email address"
+              type="text"
+              name="naam"
+              placeholder="Naam en achternaam"
               required
             />
-            <input type="text" placeholder="Onderwerp" required />
-            <textarea rows="8" placeholder="Message" required></textarea>
-            <button type="Submit" class="hero-btn blu-btn">Verstuur</button>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email adres"
+              required
+            />
+            <input
+              type="text"
+              name="onderwerp"
+              placeholder="Onderwerp"
+              required
+            />
+            <textarea
+              name="bericht"
+              rows="8"
+              placeholder="Bericht"
+              required
+            ></textarea>
+
+            <button type="submit" class="hero-btn blu-btn">Verstuur</button>
           </form>
         </div>
       </div>
