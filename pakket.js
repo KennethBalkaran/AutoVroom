@@ -1,34 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Pakket knoppen
   const pakketKnoppen = document.querySelectorAll(".pakket-btn");
 
-  // Winkelmandje elementen
-  const cartBody     = document.getElementById("cart-body");
-  const cartTotal    = document.getElementById("cart-total");
+  const cartBody = document.getElementById("cart-body");
+  const cartTotal = document.getElementById("cart-total");
   const totalPriceEl = document.getElementById("total-price");
 
-  // Form & knop
-  const form         = document.getElementById("bestel-form");
-  const inputs       = form ? form.querySelectorAll("input") : [];
-  const checkoutBtn  = document.getElementById("checkout-btn");
+  const form = document.getElementById("bestel-form");
+  const inputs = form ? form.querySelectorAll("input:not([type=hidden])") : [];
+  const checkoutBtn = document.getElementById("checkout-btn");
 
-  // Modal elementen
-  const modal = document.getElementById("checkoutModal");
-  const closeModalBtn = document.getElementById("closeModal");
-  const confirmBtn = document.getElementById("confirm-btn");
-  const modalPakketNaam = document.getElementById("modal-pakket-naam");
-  const modalPakketPrijs = document.getElementById("modal-pakket-prijs");
-  const modalTotaalPrijs = document.getElementById("modal-totaal-prijs");
+  // Verborgen velden
+  const pakketInput = document.getElementById("pakket");
+  const prijsInput = document.getElementById("prijs");
 
-  // Extra kosten/korting
   const INSCHRIJFKOSTEN = 39.5;
-  const KORTING         = 50;
+  const KORTING = 50;
 
-  // Huidige keuze
-  let selectedName  = null;
+  let selectedName = null;
   let selectedPrice = 0;
 
-  // ---------- Helpers ----------
   function enableForm(enable) {
     inputs.forEach(i => i.disabled = !enable);
   }
@@ -76,6 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
     cartTotal.style.display = "flex";
     enableForm(true);
     updateCheckoutButton();
+
+    // Verborgen velden invullen
+    pakketInput.value = name;
+    prijsInput.value = totaal.toFixed(2);
   }
 
   function resetPakketKnoppen() {
@@ -83,21 +77,18 @@ document.addEventListener("DOMContentLoaded", () => {
       b.disabled = false;
       b.textContent = "Kies dit pakket";
       b.style.background = "#fd3643";
-      b.style = "#fff";
+      b.style.color = "#fff";
     });
   }
 
-  // ---------- Init ----------
   resetPakketKnoppen();
   renderEmptyCart();
 
-  // ---------- Pakket selecteren / deselecteren ----------
   pakketKnoppen.forEach((btn) => {
     btn.addEventListener("click", () => {
-      const naam  = btn.getAttribute("data-pakket");
+      const naam = btn.getAttribute("data-pakket");
       const prijs = parseFloat(btn.getAttribute("data-prijs"));
 
-      // Deselecteren
       if (selectedName === naam) {
         selectedName = null;
         selectedPrice = 0;
@@ -106,7 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Nieuw selecteren
       selectedName = naam;
       selectedPrice = prijs;
 
@@ -115,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
           b.disabled = true;
         } else {
           b.textContent = "Gekozen";
-          b.style.background = "#28a745"; // groen
+          b.style.background = "#28a745";
         }
       });
 
@@ -123,53 +113,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ---------- Live validatie ----------
   inputs.forEach(i => i.addEventListener("input", updateCheckoutButton));
 
-  // ---------- Checkout knop -> open modal ----------
-  if (checkoutBtn) {
-    checkoutBtn.addEventListener("click", () => {
-      // Vul de modal met gegevens
-      if (selectedName && selectedPrice) {
-        const totaal = selectedPrice + INSCHRIJFKOSTEN - KORTING;
-        modalPakketNaam.textContent = selectedName;
-        modalPakketPrijs.textContent = `€${selectedPrice.toFixed(2)}`;
-        modalTotaalPrijs.textContent = `€${totaal.toFixed(2)}`;
-
-        // Open modal
-        modal.style.display = "flex";
-      }
-    });
-  }
-
-  // ---------- Sluit modal ----------
-  closeModalBtn.onclick = () => {
-    modal.style.display = "none";
-  };
-  window.onclick = (event) => {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  };
-
-  // ---------- Bevestigen in modal ----------
-  confirmBtn.onclick = () => {
-    // Hier kun je verdere verwerking doen (bv. betalen, bevestigen, etc.)
-    alert("Bedankt voor je bestelling!");
-    modal.style.display = "none";
-
-    // Optioneel: reset alles na bevestiging
-    selectedName = null;
-    selectedPrice = 0;
-    renderEmptyCart();
-    inputs.forEach(i => i.value = "");
-    updateCheckoutButton();
-  };
-
-  // ---------- Form versturen (indien nodig) ----------
   if (form) {
     form.addEventListener("submit", (e) => {
-      e.preventDefault();
+      if (!validateFormFields()) {
+        e.preventDefault();
+        alert("Vul alle velden correct in!");
+      }
     });
   }
 });

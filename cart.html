@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vroom Rijschool - Pakketten</title>
+    <title>Vroom Rijschool - Pakketten</title>
     <link rel="stylesheet" href="Style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,12 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css"
-    />
     <script
-      rel="stylesheet"
       src="https://kit.fontawesome.com/4bb009b32d.js"
       crossorigin="anonymous"
     ></script>
@@ -39,6 +34,7 @@
       </nav>
       <h1>Pakketten</h1>
     </section>
+
     <!----------- winkel ----------->
     <section class="pakket-selectie">
       <h1>Pakketten</h1>
@@ -136,60 +132,48 @@
         </div>
       </div>
 
-          <!----------- winkelwagen ----------->
+      <!----------- winkelwagen ----------->
+      <section class="winkelwagen">
+        <h2>Winkelmandje</h2>
 
-<section class="winkelwagen">
-  <h2>Winkelmandje</h2>
+        <div id="cart-body">
+          <p>Nog geen pakket gekozen</p>
+        </div>
 
-  <div id="cart-body">
-    <p>Nog geen pakket gekozen</p>
-  </div>
+        <div class="cart-total" id="cart-total" style="display:none;">
+          <span>Totaal:</span>
+          <span id="total-price">€0,00</span>
+        </div>
 
-  <div class="cart-total" id="cart-total" style="display:none;">
-    <span>Totaal:</span>
-    <span id="total-price">€0,00</span>
-  </div>
+        <form
+          id="bestel-form"
+          class="bestel-form"
+          action="https://formspree.io/f/xrbarkdl"
+          method="POST"
+        >
+          <input type="text" id="naam" name="naam" placeholder="Naam en achternaam" disabled required />
+          <input type="email" id="email" name="email" placeholder="Email" disabled required />
+          <input type="tel" id="telefoon" name="telefoon" placeholder="Telefoonnummer" disabled required />
 
-  <button
-  id="checkout-btn"
-  class="checkout-btn"
-  type="submit"
-  form="bestel-form"
-  disabled
->
-  Bestellen
-</button>
+          <!-- Verborgen velden -->
+          <input type="hidden" id="pakket" name="pakket" />
+          <input type="hidden" id="prijs" name="prijs" />
 
-  <form id="bestel-form" class="bestel-form" novalidate>
-    <input type="text" id="naam" name="naam" placeholder="Naam en achternaam" disabled required />
-    <input type="email" id="email" name="email" placeholder="Email" disabled required />
-    <input type="tel" id="telefoon" name="telefoon" placeholder="Telefoonnummer" disabled required />
-  </form>
+          <button
+            id="checkout-btn"
+            class="checkout-btn"
+            type="submit"
+            disabled
+          >
+            Bestellen
+          </button>
+        </form>
 
-  <p class="winkelwagen-info">
-    <strong>Let op:</strong> bovenstaande prijs is alleen van toepassing bij betaling via onze website.
-  </p>
-</section>
-
-<script src="pakket.js" defer></script>
-<script src="checkout.js" defer></script>
-
-<div id="checkoutModal" class="modal" style="display:none;">
-  <div class="modal-content">
-    <div class="modal-header">
-      Checkout
-      <span class="close-button" id="closeModal">&times;</span>
-    </div>
-    <div class="modal-body">
-      <p><strong>Gekozen pakket:</strong> <span id="modal-pakket-naam"></span></p>
-      <p><strong>Prijs:</strong> <span id="modal-pakket-prijs"></span></p>
-      <h3><strong>Totaal prijs:</strong> <span id="modal-totaal-prijs"></span></h3>
-      
-      <button id="confirm-btn">Bestellen</button>
-    </div>
-  </div>
-</div>
-
+        <p class="winkelwagen-info">
+          <strong>Let op:</strong> bovenstaande prijs is alleen van toepassing bij betaling via onze website.
+        </p>
+      </section>
+    </section>
 
     <!----------- Footer ----------->
     <section class="footer">
@@ -205,10 +189,10 @@
         dingen niet echt bestaan.
       </p>
     </section>
+
     <!-----------JavaScript Toggle Menu----------->
     <script>
       var navLinks = document.getElementById("navLinks");
-
       function showMenu() {
         navLinks.style.right = "0";
       }
@@ -216,5 +200,8 @@
         navLinks.style.right = "-200px";
       }
     </script>
+
+  
+    <script src="pakket.js"></script>
   </body>
 </html>
