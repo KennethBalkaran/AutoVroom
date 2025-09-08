@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vroom Rijschool - Pakketten</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="Style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -140,7 +141,7 @@
           <p>Nog geen pakket gekozen</p>
         </div>
 
-        <div class="cart-total" id="cart-total" style="display:none;">
+        <div class="cart-total" id="cart-total" style="display: none">
           <span>Totaal:</span>
           <span id="total-price">€0,00</span>
         </div>
@@ -151,26 +152,43 @@
           action="https://formspree.io/f/xrbarkdl"
           method="POST"
         >
-          <input type="text" id="naam" name="naam" placeholder="Naam en achternaam" disabled required />
-          <input type="email" id="email" name="email" placeholder="Email" disabled required />
-          <input type="tel" id="telefoon" name="telefoon" placeholder="Telefoonnummer" disabled required />
+          <input
+            type="text"
+            id="naam"
+            name="naam"
+            placeholder="Naam en achternaam"
+            disabled
+            required
+          />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            disabled
+            required
+          />
+          <input
+            type="tel"
+            id="telefoon"
+            name="telefoon"
+            placeholder="Telefoonnummer"
+            disabled
+            required
+          />
 
           <!-- Verborgen velden -->
           <input type="hidden" id="pakket" name="pakket" />
           <input type="hidden" id="prijs" name="prijs" />
 
-          <button
-            id="checkout-btn"
-            class="checkout-btn"
-            type="submit"
-            disabled
-          >
+          <button id="checkout-btn" class="checkout-btn" type="submit" disabled>
             Bestellen
           </button>
         </form>
 
         <p class="winkelwagen-info">
-          <strong>Let op:</strong> bovenstaande prijs is alleen van toepassing bij betaling via onze website.
+          <strong>Let op:</strong> bovenstaande prijs is alleen van toepassing
+          bij betaling via onze website.
         </p>
       </section>
     </section>
@@ -201,7 +219,6 @@
       }
     </script>
 
-  
     <script src="pakket.js"></script>
   </body>
 </html>
