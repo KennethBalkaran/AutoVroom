@@ -290,6 +290,7 @@ p {
 
 .review-col p {
   padding: 0;
+  text-align:left;
 }
 .review-col h3 {
   margin-top: 15px;
